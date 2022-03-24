@@ -19,7 +19,7 @@ export default function InterviewerListItem(props) {
         src={props.avatar}
         alt={props.name}
       />
-      Sylvia Palmer
+      {props.selected && props.name}
     </li>
   )
 }
