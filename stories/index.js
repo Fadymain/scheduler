@@ -6,6 +6,8 @@ import InterviewerList from "components/InterviewerList";
 import Appointment from "components/Appointment";
 import Header from "components/Appointment/Header";
 import Empty from "components/Appointment/Empty";
+import Show from "components/Appointment/Show";
+import Confirm from "components/Appointment/Confirm";
 
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
@@ -145,3 +147,5 @@ storiesOf("Appointment", module)
   .add("Appointment with Time", () => <Appointment time="12pm" />)
   .add("Header", () => <Header time="12pm"/>)
   .add("Empty", () => <Empty onAdd={action("onAdd")} />)
+  .add("Show", () => <Show onEdit={action("onEdit")} onDelete={action("onDelete")} />)
+  .add("Confrim", () => <Confirm onConfirm={action("onConfirm")} onCancel={action("onCancel")} />)
