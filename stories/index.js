@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from "react";
 import DayListItem from "components/DayListItem";
 import DayList from "components/DayList";
 import InterviewerListItem from "components/InterviewerListItem";
@@ -157,4 +157,20 @@ storiesOf("Appointment", module)
   .add("Error", () => <Error message="Could not delete appointment" onClose={action("onClose")} />)
   .add("Edit", () => <Form onSave={action("onSave")} onCancel={action("onCancel")} student={"Jerry"} interviewer={1} interviewers={interviewers}/>)
   .add("Create", () => <Form onSave={action("onSave")} onCancel={action("onCancel")} interviewers={interviewers} />)
+  .add("Appointment Empty", () => (
+    <Fragment>
+      <Appointment id={1} time="4pm" />
+      <Appointment time="5pm" />
+    </Fragment>
+  ))
+  .add("Appointment Booked", () => (
+    <Fragment>
+      <Appointment
+        id={1}
+        time="4pm"
+        interview={{ student: "Lydia Miller-Jones", interviewer }}
+      />
+      <Appointment time="5pm" />
+    </Fragment>
+  ))
   
