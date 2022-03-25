@@ -10,6 +10,7 @@ import Show from "components/Appointment/Show";
 import Confirm from "components/Appointment/Confirm";
 import Status from "components/Appointment/Status";
 import Error from "components/Appointment/Error";
+import Form from "components/Appointment/Form";
 
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
@@ -17,6 +18,7 @@ import { action } from "@storybook/addon-actions";
 import "index.scss";
 
 import Button from "components/Button";
+import { act } from "@testing-library/react";
 
 storiesOf("Button", module)
   .addParameters({
@@ -153,3 +155,6 @@ storiesOf("Appointment", module)
   .add("Confrim", () => <Confirm onConfirm={action("onConfirm")} onCancel={action("onCancel")} />)
   .add("Status", () => <Status message="Deleting" />)
   .add("Error", () => <Error message="Could not delete appointment" onClose={action("onClose")} />)
+  .add("Edit", () => <Form onSave={action("onSave")} onCancel={action("onCancel")} student={"Jerry"} interviewer={1} interviewers={interviewers}/>)
+  .add("Create", () => <Form onSave={action("onSave")} onCancel={action("onCancel")} interviewers={interviewers} />)
+  
