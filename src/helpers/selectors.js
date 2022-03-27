@@ -34,3 +34,22 @@ export function getInterview(state, interview) {
   }
   return obj;
 }
+
+export function getInterviewersForDay(state, dayName) {
+  const appForInterviewer = [];
+
+  const foundDay = state.days.find(({name}) => {
+    return name === dayName
+  })
+
+  if (!foundDay) {
+    return appForInterviewer
+  }
+
+  foundDay.interviewers.forEach(interviewersId => {
+    if (state.interviewers[interviewersId]) {
+      appForInterviewer.push(state.interviewers[interviewersId])
+    }
+  })
+  return appForInterviewer
+}
