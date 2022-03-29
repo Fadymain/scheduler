@@ -10,6 +10,9 @@ import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "help
 
 
 
+
+
+
 export default function Application(props) {
   const [state, setState] = useState({
     day: "Monday",
@@ -18,6 +21,28 @@ export default function Application(props) {
     interviewers: {}
   });
 
+
+  function bookInterview(id, interview) {
+
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+
+
+    return axios.put(`http://localhost:8001/api/appointments/${id}`, { interview })
+      .then((response) => {
+        setState({
+          ...state,
+          appointments
+        });
+      }).catch((err) => console.log("err", err))
+  }
 
   const appointments = getAppointmentsForDay(state, state.day);
   const interviewers = getInterviewersForDay(state, state.day);
@@ -72,10 +97,12 @@ export default function Application(props) {
               time={appointment.time}
               interview={interview}
               interviewers={interviewers}
+              bookInterview={bookInterview}
 
             />
           )
         })}
+        <Appointment time="5pm"/>
       </section>
     </main>
   );
