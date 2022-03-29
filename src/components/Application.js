@@ -41,7 +41,8 @@ export default function Application(props) {
           ...state,
           appointments
         });
-      }).catch((err) => console.log("err", err))
+      })
+      // .catch((err) => console.log("err", err))
     
 
 
@@ -67,7 +68,8 @@ export default function Application(props) {
           ...state,
           appointments
         });
-      }).catch((err) => console.log("err", err))
+      })
+      // .catch((err) => console.log("err", err))
   }
 
   const appointments = getAppointmentsForDay(state, state.day);
