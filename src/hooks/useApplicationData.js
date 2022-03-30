@@ -22,11 +22,42 @@ export default function useApplicationData() {
 
   const setDay = day => setState({ ...state, day });
 
+
+  function availableSpots(appointmentId, booked) {
+    return state.days.map((day) => {
+      const newDay = {...day}
+      if (newDay.appointments.includes(appointmentId)) {
+        let currentSpots = newDay.spots
+
+        if (booked) {
+          currentSpots -= 1;
+        } else {
+          currentSpots += 1;
+        }
+    
+        newDay.spots = currentSpots
+      }
+      return newDay;
+    })
+
+    // let currentSpots = dayAppointment.spots
+
+    // if (booked) {
+    //   currentSpots -= 1;
+    // } else {
+    //   currentSpots += 1;
+    // }
+
+    // dayAppointment.spots = currentSpots
+
+    // // setState(prev => ({...prev, days: [...state.days, dayAppointment]}))
+    // return dayAppointment;
+  }
+
   function cancelInterview(id) {
 
 
     const appointment = state.appointments[id];
-    console.log("id", id)
 
     appointment.interview = null;
 
@@ -35,15 +66,17 @@ export default function useApplicationData() {
       [id]: appointment
     };
 
-
+    const days = availableSpots(id, false);
+    
     return axios.delete(`/api/appointments/${id}`)
       .then((response) => {
         setState({
           ...state,
-          appointments
+          appointments,
+          days
         });
       })
-    // .catch((err) => console.log("err", err))
+    
 
 
 
@@ -62,12 +95,14 @@ export default function useApplicationData() {
       [id]: appointment
     };
 
+    const days = availableSpots(id, true);
 
     return axios.put(`/api/appointments/${id}`, { interview })
       .then((response) => {
         setState({
           ...state,
-          appointments
+          appointments,
+          days
         });
       })
     // .catch((err) => console.log("err", err))
