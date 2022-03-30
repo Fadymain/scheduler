@@ -38,20 +38,7 @@ export default function useApplicationData() {
         newDay.spots = currentSpots
       }
       return newDay;
-    })
-
-    // let currentSpots = dayAppointment.spots
-
-    // if (booked) {
-    //   currentSpots -= 1;
-    // } else {
-    //   currentSpots += 1;
-    // }
-
-    // dayAppointment.spots = currentSpots
-
-    // // setState(prev => ({...prev, days: [...state.days, dayAppointment]}))
-    // return dayAppointment;
+    });
   }
 
   function cancelInterview(id) {
@@ -105,7 +92,7 @@ export default function useApplicationData() {
           days
         });
       })
-    // .catch((err) => console.log("err", err))
+    
   }
 
   return {
