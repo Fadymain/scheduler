@@ -11,6 +11,7 @@ export default function Form(props) {
   const reset = function() {
     setStudent("") 
     setInterviewer(null)
+    setError("")
   }
 
   const cancel = function() {
@@ -24,6 +25,7 @@ export default function Form(props) {
       return;
     }
   
+    setError("");
     props.onSave(student, interviewer);
   }
 
