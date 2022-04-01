@@ -63,7 +63,6 @@ export default function Application(props) {
           alt="Lighthouse Labs"
         />
 
-        {/* Replace this with the sidebar elements during the "Project Setup & Familiarity" activity. */}
       </section>
       <section className="schedule">
         {appointments}
