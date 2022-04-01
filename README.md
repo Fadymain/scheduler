@@ -3,9 +3,9 @@ Using the latest tools and techniques, we built and test a React application tha
 
 ## Final Product
 
-!["Interview scheduler booking feed"]()
-!["Booking an interview on the scheduler"]()
-!["Booking an interview on the scheduler"]()
+!["Interview scheduler booking feed"](https://github.com/Fadymain/scheduler/blob/master/docs/shceduler-from.png)
+!["Booking an interview on the scheduler"](https://github.com/Fadymain/scheduler/blob/master/docs/scheduler-bookingInterview.png)
+!["Canceling an interview on the scheduler"](https://github.com/Fadymain/scheduler/blob/master/docs/scheduler-cancelInterview.png)
 
 ## Setup
 
