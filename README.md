@@ -1,4 +1,11 @@
 # Interview Scheduler
+Using the latest tools and techniques, we built and test a React application that allows users to book and cancel interviews. We combine a concise API with a WebSocket server to build a realtime experience.
+
+## Final Product
+
+!["Interview scheduler booking feed"]()
+!["Booking an interview on the scheduler"]()
+!["Booking an interview on the scheduler"]()
 
 ## Setup
 
